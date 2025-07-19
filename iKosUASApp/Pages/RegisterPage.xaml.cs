@@ -11,7 +11,17 @@ public partial class RegisterPage : ContentPage
 
     private async void OnRegisterClicked(object sender, EventArgs e)
     {
-        if (AuthService.Register(usernameEntry.Text, passwordEntry.Text))
+        string username = usernameEntry.Text;
+        string password = passwordEntry.Text;
+        string kosName = kosNameEntry.Text;
+
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(kosName))
+        {
+            await DisplayAlert("Gagal", "Semua field wajib diisi", "OK");
+            return;
+        }
+
+        if (AuthService.Register(username, password, kosName))
         {
             await DisplayAlert("Sukses", "Registrasi berhasil", "OK");
             await Navigation.PushAsync(new LoginPage());

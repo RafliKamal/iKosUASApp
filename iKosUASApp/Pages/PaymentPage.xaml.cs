@@ -8,17 +8,26 @@ public partial class PaymentPage : ContentPage
     public PaymentPage()
     {
         InitializeComponent();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
         LoadTenantPayments();
     }
 
     private void LoadTenantPayments()
     {
-        var tenants = RoomService.GetRooms()
+        var allTenants = RoomService.GetRooms()
             .Where(r => r.Tenant != null)
             .Select(r => r.Tenant)
             .ToList();
 
-        paymentList.ItemsSource = tenants;
+        var paid = allTenants.Where(t => t.IsPaidThisMonth).ToList();
+        var unpaid = allTenants.Where(t => !t.IsPaidThisMonth).ToList();
+
+        paidList.ItemsSource = paid;
+        unpaidList.ItemsSource = unpaid;
     }
 
     private async void OnTenantSelected(object sender, SelectionChangedEventArgs e)

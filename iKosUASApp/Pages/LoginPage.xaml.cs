@@ -27,4 +27,8 @@ public partial class LoginPage : ContentPage
         await Navigation.PushAsync(new RegisterPage());
     }
 
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
 }

@@ -6,10 +6,11 @@
     <StackLayout Padding="20" Spacing="15">
         <Label x:Name="nameLabel" FontSize="24" FontAttributes="Bold"/>
         <Label x:Name="roomLabel" FontSize="18"/>
+        <Label x:Name="priceLabel" FontSize="18"/>
         <Label x:Name="paymentLabel" FontSize="18"/>
 
-        <Button Text="Tambah Pembayaran" Clicked="OnAddPaymentClicked"/>
-        <Button Text="Edit Penyewa" Clicked="OnEditClicked"/>
-        <Button Text="Hapus Penyewa" Clicked="OnDeleteClicked" TextColor="Red"/>
+        <Button Text="Edit Penyewa" Clicked="OnEditClicked"  BackgroundColor="#4B5C6B" TextColor="#e7e8ea"/>
+        <Button Text="Hapus Penyewa" Clicked="OnDeleteClicked"  BackgroundColor="#4B5C6B" TextColor="#e7e8ea"/>
     </StackLayout>
+
 </ContentPage>

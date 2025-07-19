@@ -2,17 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.TenantPaymentDetailPage"
-             Title="Detail Pembayaran">
+             Title="Detail Pembayaran"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+
     <StackLayout Padding="20" Spacing="15">
-        <Label x:Name="tenantNameLabel" FontSize="24" FontAttributes="Bold" />
-        <Button Text="Tambah Pembayaran" Clicked="OnAddPaymentClicked" />
+        <!-- Nama Penyewa -->
+        <Label x:Name="tenantNameLabel"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="White" />
+
+        <!-- Tombol Tambah Pembayaran -->
+        <Button Text="Tambah Pembayaran"
+                Clicked="OnAddPaymentClicked"
+                BackgroundColor="#2D3D4F"
+                TextColor="White"/>
+
+        <!-- Daftar Pembayaran -->
         <CollectionView x:Name="paymentListView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="10" Margin="5" BackgroundColor="LightGray">
+                    <Frame Padding="10"
+                           Margin="0,0,0,10"
+                           BackgroundColor="#4B5C6B"
+                           CornerRadius="10">
                         <StackLayout>
-                            <Label Text="{Binding Date, StringFormat='Tanggal: {0:MMMM yyyy}'}" />
-                            <Label Text="{Binding Amount, StringFormat='Jumlah: Rp {0:N0}'}" />
+                            <Label Text="{Binding Date, StringFormat='Tanggal: {0:MMMM yyyy}'}"
+                                   TextColor="White"/>
+                            <Label Text="{Binding Amount, StringFormat='Jumlah: Rp {0:N0}'}"
+                                   TextColor="White"/>
                         </StackLayout>
                     </Frame>
                 </DataTemplate>

@@ -50,14 +50,24 @@ public static class RoomService
 
     public static void AssignTenantToRoom(Room room, Tenant tenant)
     {
+        tenant.Room = room; // SET agar IsPaidThisMonth bisa akses price-nya
         room.Tenant = tenant;
-        tenant.Payments.Add(new Payment { Date = DateTime.Now, Amount = room.PricePerMonth });
+
+        // Hapus auto pembayaran
+        // tenant.Payments.Add(new Payment { Date = DateTime.Now, Amount = room.PricePerMonth });
+
         DataService.SaveData();
     }
 
+
+
+
     public static int GetPaidTenantCount()
-        => GetRooms().Count(r => r.Tenant?.Payments.Any() == true);
+        => GetRooms().Count(r => r.Tenant != null && r.Tenant.IsPaidThisMonth);
+
+
 
     public static int GetUnpaidTenantCount()
-        => GetRooms().Count(r => r.Tenant != null && !r.Tenant.Payments.Any());
+    => GetRooms().Count(r => r.Tenant != null && !r.Tenant.IsPaidThisMonth);
+
 }

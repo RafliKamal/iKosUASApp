@@ -9,6 +9,6 @@
         <Label Text="Pilih Kamar Tersedia" />
         <Picker x:Name="roomPicker" Title="Pilih kamar" />
 
-        <Button Text="Simpan" Clicked="OnSaveClicked" />
+        <Button Text="Simpan" Clicked="OnSaveClicked" BackgroundColor="#4B5C6B" TextColor="White" Margin="0,30,0,0"/>
     </StackLayout>
 </ContentPage>

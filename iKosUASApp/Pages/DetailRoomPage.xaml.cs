@@ -36,6 +36,11 @@ public partial class DetailRoomPage : ContentPage
         await Navigation.PushAsync(new EditRoomPage(_room));
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
         bool confirm = await DisplayAlert("Hapus", "Yakin ingin menghapus kamar ini?", "Ya", "Tidak");

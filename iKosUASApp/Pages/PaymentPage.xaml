@@ -2,23 +2,71 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.PaymentPage"
-             Title="Pembayaran">
-    <StackLayout Padding="20">
-        <Label Text="Daftar Penyewa" FontAttributes="Bold" FontSize="20" Margin="0,0,0,10"/>
-        <CollectionView x:Name="paymentList"
-                        SelectionMode="Single"
-                        SelectionChanged="OnTenantSelected">
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10" Margin="5" BackgroundColor="LightGray">
-                        <StackLayout>
-                            <Label Text="{Binding Name}" FontSize="18" />
-                            <Label Text="Klik untuk melihat detail pembayaran" FontSize="12" />
-                        </StackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Sudah Lunas Bulan Ini"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="White" />
+
+            <CollectionView x:Name="paidList"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTenantSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="0,0,0,10"
+                               BackgroundColor="#4B5C6B"
+                               CornerRadius="10"
+                               InputTransparent="True">
+                            <StackLayout>
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       TextColor="White" />
+                                <Label Text="{Binding Room.RoomNumber, StringFormat='Kamar: {0}'}"
+                                       TextColor="White" />
+                                <Label Text="Status: Lunas"
+                                       TextColor="LightGreen"
+                                       FontAttributes="Bold"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Belum Lunas Bulan Ini"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="White"
+                   Margin="0,20,0,0"/>
+
+            <CollectionView x:Name="unpaidList"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTenantSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="0,0,0,10"
+                               BackgroundColor="#4B5C6B"
+                               CornerRadius="10"
+                               InputTransparent="True">
+                            <StackLayout>
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       TextColor="White" />
+                                <Label Text="{Binding Room.RoomNumber, StringFormat='Kamar: {0}'}"
+                                       TextColor="White" />
+                                <Label Text="Status: Belum Lunas"
+                                       TextColor="Salmon"
+                                       FontAttributes="Bold" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

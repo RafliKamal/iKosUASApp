@@ -32,6 +32,21 @@ public static class DataService
 
                 string savedUsername = Preferences.Default.Get("LoggedInUser", "");
                 AuthService.CurrentUser = users?.FirstOrDefault(u => u.Username == savedUsername);
+
+             
+                if (AuthService.CurrentUser != null)
+                {
+                    foreach (var room in AuthService.CurrentUser.Rooms)
+                    {
+                        if (room.Tenant != null)
+                        {
+                            room.Tenant.Room = room;
+
+                            
+                            room.Tenant.Payments = new System.Collections.ObjectModel.ObservableCollection<Payment>(room.Tenant.Payments);
+                        }
+                    }
+                }
             }
         }
         catch (Exception ex)
@@ -39,5 +54,5 @@ public static class DataService
             Console.WriteLine($"Gagal memuat data: {ex.Message}");
         }
     }
+
 }
-    

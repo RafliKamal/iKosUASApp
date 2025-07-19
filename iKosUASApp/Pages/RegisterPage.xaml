@@ -2,11 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.RegisterPage"
-             Title="RegisterPage">
-    <StackLayout Padding="20">
-        <Entry x:Name="usernameEntry" Placeholder="Username" />
-        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
-        <Button Text="Daftar" Clicked="OnRegisterClicked" />
-        <Button Text="Sudah punya akun? Login" Clicked="OnGoToLoginClicked" />
+             BackgroundColor="Black">
+
+    <StackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <Label Text="KOSAN KU" FontSize="30" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" />
+
+        <Entry x:Name="kosNameEntry" Placeholder="Nama Kos" BackgroundColor="#2C3E50" TextColor="White" PlaceholderColor="LightGray" />
+        <Entry x:Name="usernameEntry" Placeholder="Username" BackgroundColor="#2C3E50" TextColor="White" PlaceholderColor="LightGray" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" BackgroundColor="#2C3E50" TextColor="White" PlaceholderColor="LightGray" />
+
+        <Button Text="Register" BackgroundColor="#95A5A6" TextColor="White" Clicked="OnRegisterClicked" />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Sudah memiliki akun? " TextColor="White" />
+            <Label Text="Login" TextColor="White" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoToLoginClicked" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

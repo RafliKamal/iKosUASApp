@@ -2,12 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.LoginPage"
-             Title="LoginPage">
-    <StackLayout Padding="20">
-        <Entry x:Name="usernameEntry" Placeholder="Username" />
-        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
-        <Button Text="Login" Clicked="OnLoginClicked" />
-        <Button Text="Belum punya akun? Daftar" Clicked="OnGoToRegisterClicked" />
+             BackgroundColor="Black">
+
+    <StackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <Label Text="KOSAN KU" FontSize="30" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" />
+
+        <Entry x:Name="usernameEntry" Placeholder="Email" BackgroundColor="#2C3E50" TextColor="White" PlaceholderColor="LightGray" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" BackgroundColor="#2C3E50" TextColor="White" PlaceholderColor="LightGray" />
+
+        <Button Text="Login" BackgroundColor="#95A5A6" TextColor="White" Clicked="OnLoginClicked" />
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Belum memiliki akun? " TextColor="White" />
+            <Label Text="Register" TextColor="White" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoToRegisterClicked" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
 
     </StackLayout>
 </ContentPage>

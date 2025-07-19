@@ -20,28 +20,30 @@ public partial class DetailTenantPage : ContentPage
     {
         nameLabel.Text = $"Nama: {_tenant.Name}";
         roomLabel.Text = $"Kamar: {_room.RoomNumber}";
+        priceLabel.Text = $"Harga Sewa per Bulan: Rp {_room.PricePerMonth:N0}";
         paymentLabel.Text = $"Total Dibayar: Rp {_tenant.TotalPaid:N0}";
     }
 
-    private async void OnAddPaymentClicked(object sender, EventArgs e)
-    {
-        string input = await DisplayPromptAsync("Tambah Pembayaran", "Masukkan nominal pembayaran (Rp):", keyboard: Keyboard.Numeric);
 
-        if (double.TryParse(input, out double amount) && amount > 0)
-        {
-            _tenant.Payments.Add(new Payment
-            {
-                Date = DateTime.Now,
-                Amount = amount
-            });
+    //private async void OnAddPaymentClicked(object sender, EventArgs e)
+    //{
+    //    string input = await DisplayPromptAsync("Tambah Pembayaran", "Masukkan nominal pembayaran (Rp):", keyboard: Keyboard.Numeric);
 
-            RefreshUI();
-        }
-        else
-        {
-            await DisplayAlert("Error", "Nominal tidak valid.", "OK");
-        }
-    }
+    //    if (double.TryParse(input, out double amount) && amount > 0)
+    //    {
+    //        _tenant.Payments.Add(new Payment
+    //        {
+    //            Date = DateTime.Now,
+    //            Amount = amount
+    //        });
+
+    //        RefreshUI();
+    //    }
+    //    else
+    //    {
+    //        await DisplayAlert("Error", "Nominal tidak valid.", "OK");
+    //    }
+    //}
 
     private async void OnEditClicked(object sender, EventArgs e)
     {

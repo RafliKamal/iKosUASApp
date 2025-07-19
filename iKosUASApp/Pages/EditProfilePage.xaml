@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iKosUASApp.Pages.EditProfilePage"
+             Title="Edit Profil"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Foto Profil -->
+            <Image x:Name="profileImage"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   Aspect="AspectFill"
+                   BackgroundColor="LightGray"
+                   HorizontalOptions="Center" />
+
+            <!-- Tombol Pilih Gambar -->
+            <Button Text="Pilih Foto Profil"
+                    Clicked="OnPickImageClicked"
+                    BackgroundColor="#4B5C6B"
+                    TextColor="White"
+                    HorizontalOptions="Center" />
+
+            <!-- Input Nama Kosan -->
+            <Label Text="Nama Kosan"
+                   TextColor="White"/>
+            <Entry x:Name="kosNameEntry"
+                   Placeholder="Contoh: Kos Mawar"
+                   BackgroundColor="#2E2E2E"
+                   TextColor="White"
+                   PlaceholderColor="Gray"
+                   HeightRequest="40" />
+
+            <!-- Tombol Simpan -->
+            <Button Text="Simpan Perubahan"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#4B5C6B"
+                    TextColor="White"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

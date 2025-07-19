@@ -2,11 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.ProfilePage"
-             Title="Profil">
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
 
-    <StackLayout Padding="20">
-        <Label x:Name="usernameLabel" FontSize="24" />
-        <Button Text="Logout" Clicked="OnLogoutClicked" />
+    <StackLayout Padding="20" Spacing="15" HorizontalOptions="Center">
+
+        <Image x:Name="profileImage"
+               HeightRequest="120"
+               WidthRequest="120"
+               Aspect="AspectFill"
+               BackgroundColor="#4B5C6B"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,30,0,0"/>
+
+        <Label x:Name="usernameLabel"
+               FontSize="20"
+               TextColor="White"
+               HorizontalOptions="Center"/>
+
+        <Label x:Name="kosNameLabel"
+               FontSize="18"
+               TextColor="LightGray"
+               HorizontalOptions="Center"/>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Padding="0,20,0,0">
+            <Button Text="Edit Profil"
+                    Clicked="OnEditProfileClicked"
+                    Grid.Column="0"
+                    BackgroundColor="#4B5C6B"
+                    TextColor="White"/>
+
+            <Button Text="Logout"
+                    Clicked="OnLogoutClicked"
+                    Grid.Column="1"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"/>
+        </Grid>
     </StackLayout>
-
 </ContentPage>

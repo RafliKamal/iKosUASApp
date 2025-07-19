@@ -2,24 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.TenantPage"
-             Title="TenantPage">
-    <StackLayout Padding="20">
-        <Button Text="Tambah Penyewa" Clicked="OnAddTenantClicked" />
-        <CollectionView x:Name="tenantView"
-                        SelectionMode="Single"
-                        SelectionChanged="OnTenantSelected">
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10">
-                        <StackLayout>
-                            <Label Text="{Binding Tenant.Name}" FontSize="20" />
-                            <Label Text="{Binding Room.RoomNumber, StringFormat='Kamar: {0}'}" />
-                        </StackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <Button
+                BackgroundColor="#2D3D4F"
+                TextColor="White"
+                FontAttributes="Bold"
+                Text="Tambah Penyewa"
+                Clicked="OnAddTenantClicked" />
 
-    </StackLayout>
+            <CollectionView x:Name="tenantView"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTenantSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#4B5C6B"
+                               CornerRadius="5"
+                               Margin="0,0,0,5"
+                               Padding="10"
+                               HasShadow="False"
+                               InputTransparent="True">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <StackLayout Spacing="5">
+                                    <Label Text="{Binding Tenant.Name}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                    <Label Text="{Binding Room.RoomNumber, StringFormat='Kamar: {0}'}"
+                                           FontSize="14"
+                                           TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

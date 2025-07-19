@@ -7,14 +7,22 @@ public static class AuthService
     public static List<User> Users { get; set; } = new();
     public static User? CurrentUser;
 
-    public static bool Register(string username, string password)
+    public static bool Register(string username, string password, string kosName)
     {
         if (Users.Any(u => u.Username == username)) return false;
-        var newUser = new User { Username = username, Password = password };
+
+        var newUser = new User
+        {
+            Username = username,
+            Password = password,
+            KosName = kosName
+        };
+
         Users.Add(newUser);
         Save();
         return true;
     }
+
 
     public static bool Login(string username, string password)
     {

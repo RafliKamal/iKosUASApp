@@ -2,40 +2,83 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.HomePage"
-             Title="HomePage">
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+
     <ScrollView>
-        <StackLayout Padding="20" Spacing="15">
-            <Label Text="Dashboard" FontSize="24" />
-            <Frame>
-                <StackLayout>
-                    <Label Text="Jumlah Ruangan" />
-                    <Label x:Name="totalLabel" FontSize="20" />
-                </StackLayout>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Header Nama Kos -->
+            <Frame BackgroundColor="#3A4A5A" Padding="15" CornerRadius="5">
+                <Label x:Name="kosNameLabel"
+                       Text="Nama Kos"
+                       TextColor="White"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
             </Frame>
-            <Frame>
-                <StackLayout>
-                    <Label Text="Terisi" />
-                    <Label x:Name="occupiedLabel" FontSize="20" />
-                </StackLayout>
+
+            <!-- Pendapatan Bulan Ini -->
+            <Frame BackgroundColor="#3A4A5A" Padding="20" CornerRadius="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Pendapatan Bulan Ini"
+                           TextColor="White"
+                           FontSize="16"
+                           HorizontalOptions="Center" />
+                    <Label x:Name="incomeLabel"
+                           Text="Rp0"
+                           TextColor="White"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
             </Frame>
-            <Frame>
-                <StackLayout>
-                    <Label Text="Tersedia" />
-                    <Label x:Name="availableLabel" FontSize="20" />
-                </StackLayout>
-            </Frame>
-            <Frame>
-                <StackLayout>
-                    <Label Text="Sudah Lunas" />
-                    <Label x:Name="paidLabel" FontSize="20" />
-                </StackLayout>
-            </Frame>
-            <Frame>
-                <StackLayout>
-                    <Label Text="Belum Lunas" />
-                    <Label x:Name="unpaidLabel" FontSize="20" />
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+
+            <!-- Statistik -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Jumlah Kamar" TextColor="White" HorizontalOptions="Center" />
+                        <Label x:Name="totalLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Jumlah Penyewa" TextColor="White" HorizontalOptions="Center" />
+                        <Label x:Name="tenantLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Kamar Terisi" TextColor="White" HorizontalOptions="Center"/>
+                        <Label x:Name="occupiedLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Kamar Kosong" TextColor="White" HorizontalOptions="Center"/>
+                        <Label x:Name="availableLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Sudah Lunas" TextColor="White" HorizontalOptions="Center"/>
+                        <Label x:Name="paidLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
+                    <VerticalStackLayout>
+                        <Label Text="Belum Lunas" TextColor="White" HorizontalOptions="Center"/>
+                        <Label x:Name="unpaidLabel" Text="0" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

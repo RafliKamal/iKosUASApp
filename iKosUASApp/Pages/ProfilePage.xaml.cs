@@ -8,11 +8,44 @@ public partial class ProfilePage : ContentPage
     {
         InitializeComponent();
 
-        if (AuthService.CurrentUser != null)
+        var user = AuthService.CurrentUser;
+        if (user != null)
         {
-            usernameLabel.Text = $"Halo, {AuthService.CurrentUser.Username}";
+            usernameLabel.Text = $"Halo, {user.Username}";
+            kosNameLabel.Text = user.KosName;
+
+            if (!string.IsNullOrEmpty(user.ProfileImagePath))
+            {
+                profileImage.Source = ImageSource.FromFile(user.ProfileImagePath);
+            }
         }
     }
+
+    private async void OnEditProfileClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new EditProfilePage());
+    }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        var user = AuthService.CurrentUser;
+        if (user != null)
+        {
+            usernameLabel.Text = $"Halo, {user.Username}";
+            kosNameLabel.Text = user.KosName;
+
+            if (!string.IsNullOrEmpty(user.ProfileImagePath))
+            {
+                profileImage.Source = ImageSource.FromFile(user.ProfileImagePath);
+            }
+            else
+            {
+                profileImage.Source = null;
+            }
+        }
+    }
+
 
     private async void OnLogoutClicked(object sender, EventArgs e)
     {

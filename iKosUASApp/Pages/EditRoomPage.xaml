@@ -5,6 +5,9 @@
              Title="EditRoomPage">
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
+
+            <Image x:Name="pickedImage" HeightRequest="200" WidthRequest="400" Aspect="AspectFill" BackgroundColor="LightGray" />
+            <Button Text="Pilih Gambar" Clicked="OnPickImageClicked" />
             <Label Text="Nomor Kamar" />
             <Entry x:Name="roomNumberEntry" Placeholder="Contoh: A1" />
 
@@ -14,13 +17,10 @@
             <Entry x:Name="priceEntry" Keyboard="Numeric" Placeholder="Contoh: 500000" />
 
 
-            <Button Text="Pilih Gambar" Clicked="OnPickImageClicked" />
-
-            <Image x:Name="pickedImage" HeightRequest="200" WidthRequest="400" Aspect="AspectFill" BackgroundColor="LightGray" />
 
             <Button Text="Simpan" Clicked="OnSaveClicked" />
-            
-            
+
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

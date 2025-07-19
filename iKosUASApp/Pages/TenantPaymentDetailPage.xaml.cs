@@ -27,6 +27,11 @@ public partial class TenantPaymentDetailPage : ContentPage
 
             paymentListView.ItemsSource = null;
             paymentListView.ItemsSource = _tenant.Payments;
+
+            await DisplayAlert("Info", _tenant.IsPaidThisMonth
+                ? "Pembayaran bulan ini sudah lunas."
+                : "Pembayaran bulan ini masih kurang.", "OK");
         }
+
     }
 }
