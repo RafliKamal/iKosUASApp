@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iKosUASApp.Pages.AddRoomPage"
+             Title="Tambah Kamar">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Nomor Kamar" />
+            <Entry x:Name="roomNumberEntry" Placeholder="Contoh: A1" />
+
+            <Label Text="Deskripsi" />
+            <Editor x:Name="descriptionEntry" HeightRequest="100" Placeholder="Deskripsi kamar" />
+            <Label Text="Harga per Bulan" />
+            <Entry x:Name="priceEntry" Keyboard="Numeric" Placeholder="Contoh: 500000" />
+
+
+            <Button Text="Pilih Gambar" Clicked="OnPickImageClicked" />
+
+            <Image x:Name="pickedImage" HeightRequest="200" WidthRequest="400" Aspect="AspectFill" BackgroundColor="LightGray" />
+
+            <Button Text="Simpan" Clicked="OnSaveClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

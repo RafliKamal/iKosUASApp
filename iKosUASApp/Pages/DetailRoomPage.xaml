@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iKosUASApp.Pages.DetailRoomPage"
+             Title="DetailRoomPage">
+    <StackLayout Padding="20">
+        <Label x:Name="roomNumberLabel" FontSize="20" />
+        <Label x:Name="descriptionLabel" FontSize="16" />
+        <Label x:Name="tenantLabel" FontSize="16" />
+        <Label x:Name="priceLabel" FontSize="16" />
+        <Image x:Name="roomImage" HeightRequest="150" />
+        <Button Text="Hapus Kamar" Clicked="OnDeleteClicked" />
+    </StackLayout>
+</ContentPage>

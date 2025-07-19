@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iKosUASApp.Pages.HomePage"
+             Title="HomePage">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Dashboard" FontSize="24" />
+            <Frame>
+                <StackLayout>
+                    <Label Text="Jumlah Ruangan" />
+                    <Label x:Name="totalLabel" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Terisi" />
+                    <Label x:Name="occupiedLabel" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Tersedia" />
+                    <Label x:Name="availableLabel" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Sudah Lunas" />
+                    <Label x:Name="paidLabel" FontSize="20" />
+                </StackLayout>
+            </Frame>
+            <Frame>
+                <StackLayout>
+                    <Label Text="Belum Lunas" />
+                    <Label x:Name="unpaidLabel" FontSize="20" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

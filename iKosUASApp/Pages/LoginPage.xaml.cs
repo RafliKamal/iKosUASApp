@@ -1,0 +1,30 @@
+using iKosUASApp.Service;
+
+namespace iKosUASApp.Pages;
+
+public partial class LoginPage : ContentPage
+{
+    public LoginPage()
+    {
+        InitializeComponent();
+    }
+
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        if (AuthService.Login(usernameEntry.Text, passwordEntry.Text))
+        {
+            Application.Current.MainPage = new MainNavigationPage(); 
+        }
+        else
+        {
+            await DisplayAlert("Login Gagal", "Username atau password salah.", "OK");
+        }
+
+    }
+
+    private async void OnGoToRegisterClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new RegisterPage());
+    }
+
+}
