@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="iKosUASApp.Pages.TenantPage"
-             Title="TenantPage">
+             x:Class="iKosUASApp.Pages.PaymentPage"
+             Title="Pembayaran">
     <StackLayout Padding="20">
-        <Button Text="Tambah Penyewa" Clicked="OnAddTenantClicked" />
-        <CollectionView x:Name="tenantView"
+        <Label Text="Daftar Penyewa" FontAttributes="Bold" FontSize="20" Margin="0,0,0,10"/>
+        <CollectionView x:Name="paymentList"
                         SelectionMode="Single"
                         SelectionChanged="OnTenantSelected">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="10">
+                    <Frame Padding="10" Margin="5" BackgroundColor="LightGray">
                         <StackLayout>
-                            <Label Text="{Binding Tenant.Name}" FontSize="20" />
-                            <Label Text="{Binding Room.RoomNumber, StringFormat='Kamar: {0}'}" />
+                            <Label Text="{Binding Name}" FontSize="18" />
+                            <Label Text="Klik untuk melihat detail pembayaran" FontSize="12" />
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-
     </StackLayout>
 </ContentPage>

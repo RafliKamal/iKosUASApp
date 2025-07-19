@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.DetailTenantPage"
              Title="Detail Penyewa">
-    <StackLayout Padding="20">
-        <Label x:Name="roomLabel" FontSize="18" />
-        <Label x:Name="nameLabel" FontSize="18" />
-        <Button Text="Hapus Penyewa" Clicked="OnDeleteTenantClicked" />
+    <StackLayout Padding="20" Spacing="15">
+        <Label x:Name="nameLabel" FontSize="24" FontAttributes="Bold"/>
+        <Label x:Name="roomLabel" FontSize="18"/>
+        <Label x:Name="paymentLabel" FontSize="18"/>
+
+        <Button Text="Tambah Pembayaran" Clicked="OnAddPaymentClicked"/>
+        <Button Text="Edit Penyewa" Clicked="OnEditClicked"/>
+        <Button Text="Hapus Penyewa" Clicked="OnDeleteClicked" TextColor="Red"/>
     </StackLayout>
 </ContentPage>

@@ -11,11 +11,34 @@ public static class RoomService
     public static void AddRoom(Room room)
     {
         AuthService.CurrentUser?.Rooms.Add(room);
+        DataService.SaveData();
     }
 
     public static void RemoveRoom(Room room)
     {
         AuthService.CurrentUser?.Rooms.Remove(room);
+        DataService.SaveData();
+    }
+    public static void UpdateRoom(Room updatedRoom)
+    {
+        var existing = AuthService.CurrentUser?.Rooms.FirstOrDefault(r => r.RoomNumber == updatedRoom.RoomNumber);
+        if (existing != null)
+        {
+            existing.Description = updatedRoom.Description;
+            existing.PricePerMonth = updatedRoom.PricePerMonth;
+            existing.ImagePath = updatedRoom.ImagePath;
+        }
+    }
+
+
+    public static void UpdateRoom(Room oldRoom, Room newRoom)
+    {
+        var index = AuthService.CurrentUser?.Rooms.IndexOf(oldRoom) ?? -1;
+        if (index >= 0)
+        {
+            AuthService.CurrentUser.Rooms[index] = newRoom;
+            DataService.SaveData();
+        }
     }
 
     public static List<Room> GetAvailableRooms()
@@ -28,15 +51,13 @@ public static class RoomService
     public static void AssignTenantToRoom(Room room, Tenant tenant)
     {
         room.Tenant = tenant;
-
-        // Catat pembayaran pertama saat tenant mulai menempati kamar
-        tenant.Payments.Add(new Payment
-        {
-            Date = DateTime.Now,
-            Amount = room.PricePerMonth
-        });
+        tenant.Payments.Add(new Payment { Date = DateTime.Now, Amount = room.PricePerMonth });
+        DataService.SaveData();
     }
 
-    public static int GetPaidTenantCount() => GetRooms().Count(r => r.Tenant?.Payments.Any(p => p.IsPaid) == true);
-    public static int GetUnpaidTenantCount() => GetRooms().Count(r => r.Tenant != null && r.Tenant.Payments.All(p => !p.IsPaid));
+    public static int GetPaidTenantCount()
+        => GetRooms().Count(r => r.Tenant?.Payments.Any() == true);
+
+    public static int GetUnpaidTenantCount()
+        => GetRooms().Count(r => r.Tenant != null && !r.Tenant.Payments.Any());
 }

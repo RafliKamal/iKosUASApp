@@ -10,7 +10,9 @@ public static class AuthService
     public static bool Register(string username, string password)
     {
         if (Users.Any(u => u.Username == username)) return false;
-        Users.Add(new User { Username = username, Password = password });
+        var newUser = new User { Username = username, Password = password };
+        Users.Add(newUser);
+        Save();
         return true;
     }
 
@@ -30,5 +32,10 @@ public static class AuthService
     {
         Preferences.Default.Remove("LoggedInUser");
         CurrentUser = null;
+    }
+
+    public static void Save()
+    {
+        DataService.SaveData();
     }
 }

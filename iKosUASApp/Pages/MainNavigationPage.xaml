@@ -7,6 +7,7 @@
         <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:HomePage}" />
         <ShellContent Title="Kamar" ContentTemplate="{DataTemplate pages:RoomPage}" />
         <ShellContent Title="Penyewa" ContentTemplate="{DataTemplate pages:TenantPage}" />
+        <ShellContent Title="Pembayaran" ContentTemplate="{DataTemplate pages:PaymentPage}" />
         <ShellContent Title="Profil" ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
 </Shell>

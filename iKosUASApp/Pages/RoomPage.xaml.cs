@@ -16,6 +16,7 @@ public partial class RoomPage : ContentPage
         RefreshRooms();
     }
 
+
     private void RefreshRooms()
     {
         availableRoomsView.ItemsSource = RoomService.GetAvailableRooms();

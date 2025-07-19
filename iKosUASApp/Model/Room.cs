@@ -1,17 +1,56 @@
-﻿using System;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using iKosUASApp.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace iKosUASApp.Model;
 
-public class Room
+public class Room : INotifyPropertyChanged
 {
-    public string RoomNumber { get; set; }
-    public string Description { get; set; }
-    public double PricePerMonth { get; set; }
-    public string? ImagePath { get; set; }
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private string _roomNumber;
+    public string RoomNumber
+    {
+        get => _roomNumber;
+        set => SetProperty(ref _roomNumber, value);
+    }
+
+    private string _description;
+    public string Description
+    {
+        get => _description;
+        set => SetProperty(ref _description, value);
+    }
+
+    private string? _imagePath;
+    public string? ImagePath
+    {
+        get => _imagePath;
+        set => SetProperty(ref _imagePath, value);
+    }
+
+    private double _pricePerMonth;
+    public double PricePerMonth
+    {
+        get => _pricePerMonth;
+        set => SetProperty(ref _pricePerMonth, value);
+    }
+
+    private Tenant? _tenant;
+    public Tenant? Tenant
+    {
+        get => _tenant;
+        set => SetProperty(ref _tenant, value);
+    }
+
     public bool IsOccupied => Tenant != null;
-    public Tenant? Tenant { get; set; }
+
+    protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null)
+    {
+        if (EqualityComparer<T>.Default.Equals(storage, value)) return false;
+
+        storage = value;
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        return true;
+    }
 }
