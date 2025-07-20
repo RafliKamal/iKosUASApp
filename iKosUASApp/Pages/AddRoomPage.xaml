@@ -1,26 +1,56 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.AddRoomPage"
-             Title="Tambah Kamar"
              BackgroundColor="#191919"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             >
     <ScrollView>
         <StackLayout Padding="10,20,20,20" Spacing="15">
 
-            <Image x:Name="pickedImage" HeightRequest="200" WidthRequest="400" Aspect="AspectFill" BackgroundColor="#e7e8ea" />
-            <Button Text="Pilih Gambar" Clicked="OnPickImageClicked" BackgroundColor="#4B5C6B" TextColor="#e7e8ea"/>
-            <Label Text="Nomor Kamar" />
+            <Grid ColumnDefinitions="Auto,*"
+                  Margin="0,0,0,10"
+                  VerticalOptions="Center">
+                <ImageButton Source="back.png"
+                             BackgroundColor="Transparent"
+                             Clicked="OnBackClicked"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             HorizontalOptions="Start"/>
+                <Label Text="Tambah Kamar"
+                       FontSize="20"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"
+                       HorizontalOptions="Start"
+                       Margin="20,0,0,0"
+                       Grid.Column="1"/>
+            </Grid>
+
+            <!-- Form -->
+            <Image x:Name="pickedImage"
+                   HeightRequest="200"
+                   WidthRequest="400"
+                   Aspect="AspectFill"
+                   BackgroundColor="#e7e8ea" />
+
+            <Button Text="Pilih Gambar"
+                    Clicked="OnPickImageClicked"
+                    BackgroundColor="#4B5C6B"
+                    TextColor="#e7e8ea"/>
+
+            <Label Text="Nomor Kamar" TextColor="White"/>
             <Entry x:Name="roomNumberEntry" Placeholder="Contoh: A1" />
 
-            <Label Text="Deskripsi" />
+            <Label Text="Deskripsi" TextColor="White"/>
             <Editor x:Name="descriptionEntry" HeightRequest="100" Placeholder="Deskripsi kamar" />
-            <Label Text="Harga per Bulan" />
+
+            <Label Text="Harga per Bulan" TextColor="White"/>
             <Entry x:Name="priceEntry" Keyboard="Numeric" Placeholder="Contoh: 500000" />
 
-
-
-            <Button Text="Simpan" Clicked="OnSaveClicked"  BackgroundColor="#4B5C6B" TextColor="#e7e8ea" />
+            <Button Text="Simpan"
+                    Clicked="OnSaveClicked"
+                    BackgroundColor="#4B5C6B"
+                    TextColor="#e7e8ea" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

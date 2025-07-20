@@ -16,6 +16,10 @@ public partial class DetailTenantPage : ContentPage
         RefreshUI();
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
     private void RefreshUI()
     {
         nameLabel.Text = $"Nama: {_tenant.Name}";

@@ -26,21 +26,18 @@ public partial class TenantPage : ContentPage
         emptyLabel.IsVisible = viewModels.Count == 0;
     }
 
-
     protected override void OnAppearing()
     {
         base.OnAppearing();
         RefreshTenants();
     }
 
-    private async void OnTenantSelected(object sender, SelectionChangedEventArgs e)
+    private async void OnTenantTapped(object sender, TappedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is TenantViewModel selected)
+        if (e.Parameter is TenantViewModel selected)
         {
             await Navigation.PushAsync(new DetailTenantPage(selected.Room, selected.Tenant));
         }
-
-        ((CollectionView)sender).SelectedItem = null;
     }
 
     private async void OnAddTenantClicked(object sender, EventArgs e)

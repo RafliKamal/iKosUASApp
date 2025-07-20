@@ -14,6 +14,11 @@ public partial class TenantPaymentDetailPage : ContentPage
         paymentListView.ItemsSource = _tenant.Payments;
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
     private async void OnAddPaymentClicked(object sender, EventArgs e)
     {
         string result = await DisplayPromptAsync("Tambah Pembayaran", "Masukkan jumlah (Rp):", keyboard: Keyboard.Numeric);

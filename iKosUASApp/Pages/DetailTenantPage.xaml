@@ -4,9 +4,27 @@
              x:Class="iKosUASApp.Pages.DetailTenantPage"
              Title="Detail Penyewa"
              BackgroundColor="#191919"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
 
     <StackLayout Padding="20" Spacing="15">
+        <Grid ColumnDefinitions="Auto,*"
+              Margin="0,0,0,10"
+              VerticalOptions="Center">
+            <ImageButton Source="back.png"
+                         BackgroundColor="Transparent"
+                         Clicked="OnBackClicked"
+                         HeightRequest="30"
+                         WidthRequest="30"
+                         HorizontalOptions="Start"/>
+            <Label Text="Detail Penyewa"
+                   FontSize="20"
+                   VerticalTextAlignment="Center"
+                   TextColor="White"
+                   HorizontalOptions="Start"
+                   Margin="20,0,0,0"
+                   Grid.Column="1"/>
+        </Grid>
         <Label x:Name="nameLabel" FontSize="24" FontAttributes="Bold"/>
         <Label x:Name="roomLabel" FontSize="18"/>
         <Label x:Name="priceLabel" FontSize="18"/>

@@ -37,6 +37,11 @@ public partial class AddRoomPage : ContentPage
         }
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {

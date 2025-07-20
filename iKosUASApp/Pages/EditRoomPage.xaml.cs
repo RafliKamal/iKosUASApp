@@ -14,10 +14,12 @@ public partial class EditRoomPage : ContentPage
         roomNumberEntry.Text = room.RoomNumber;
         descriptionEntry.Text = room.Description;
         priceEntry.Text = room.PricePerMonth.ToString();
-        if (!string.IsNullOrEmpty(room.ImagePath))
+        if (!string.IsNullOrEmpty(room.ImagePath) && File.Exists(room.ImagePath))
         {
             pickedImage.Source = ImageSource.FromFile(room.ImagePath);
         }
+       
+
     }
     private string? imagePath;
 
@@ -33,9 +35,10 @@ public partial class EditRoomPage : ContentPage
 
             if (result != null)
             {
-                using var stream = await result.OpenReadAsync();
+                var stream = await result.OpenReadAsync();
                 pickedImage.Source = ImageSource.FromStream(() => stream);
                 imagePath = result.FullPath;
+
             }
         }
         catch (Exception ex)
@@ -44,6 +47,10 @@ public partial class EditRoomPage : ContentPage
         }
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
     private async void OnSaveClicked(object sender, EventArgs e)
     {
         _room.RoomNumber = roomNumberEntry.Text;

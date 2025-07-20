@@ -4,25 +4,24 @@
        x:Class="iKosUASApp.Pages.MainNavigationPage"
        Shell.TabBarBackgroundColor="#191919"
        Shell.TabBarTitleColor="White"
-       Shell.TabBarUnselectedColor="Gray">
-
+       Shell.TabBarUnselectedColor="Gray"
+       Shell.TabBarForegroundColor="White">
 
     <TabBar>
-        <ShellContent Title="Dashboard"
-                      Icon="dashboard.png"
+        <ShellContent Title="_"
+                      Icon="dashboardd.png"
                       ContentTemplate="{DataTemplate pages:HomePage}" />
 
-        <ShellContent Title="Kamar"
+        <ShellContent Title="_"
                       Icon="booking.png"
                       ContentTemplate="{DataTemplate pages:RoomPage}" />
 
-        <ShellContent Title="Penyewa"
+        <ShellContent Title="_"
                       Icon="group.png"
                       ContentTemplate="{DataTemplate pages:TenantPage}" />
 
-        <ShellContent Title="Pembayaran"
+        <ShellContent Title="_"
                       Icon="dollar.png"
                       ContentTemplate="{DataTemplate pages:PaymentPage}" />
-
     </TabBar>
 </Shell>

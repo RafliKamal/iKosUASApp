@@ -25,6 +25,10 @@ public partial class ProfilePage : ContentPage
         }
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
     private async void OnEditProfileClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new EditProfilePage());

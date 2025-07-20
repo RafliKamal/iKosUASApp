@@ -38,6 +38,11 @@ public partial class EditProfilePage : ContentPage
         }
     }
 
+    private async void OnBackClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
     private async void OnSaveClicked(object sender, EventArgs e)
     {
         var user = AuthService.CurrentUser;

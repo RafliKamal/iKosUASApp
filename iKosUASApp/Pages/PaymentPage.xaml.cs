@@ -18,8 +18,7 @@ public partial class PaymentPage : ContentPage
 
     private void LoadTenantPayments()
     {
-        var rooms = RoomService.GetRooms();
-        var allTenants = rooms
+        var allTenants = RoomService.GetRooms()
             .Where(r => r.Tenant != null)
             .Select(r => r.Tenant!)
             .ToList();
@@ -30,30 +29,15 @@ public partial class PaymentPage : ContentPage
         paidList.ItemsSource = paid;
         unpaidList.ItemsSource = unpaid;
 
-        // Cek jumlah tenant
-        bool hasTenant = allTenants.Count > 0;
-
-        emptyPaidLabel.IsVisible = hasTenant && paid.Count == 0;
-        emptyUnpaidLabel.IsVisible = hasTenant && unpaid.Count == 0;
-
-        // Tambahan opsional: sembunyikan semua jika tidak ada tenant
-        if (!hasTenant)
-        {
-            emptyPaidLabel.Text = "Belum ada data penyewa.";
-            emptyUnpaidLabel.Text = "Belum ada data penyewa.";
-            emptyPaidLabel.IsVisible = true;
-            emptyUnpaidLabel.IsVisible = true;
-        }
+        emptyPaidLabel.IsVisible = paid.Count == 0;
+        emptyUnpaidLabel.IsVisible = unpaid.Count == 0 || allTenants.Count == 0;
     }
 
-
-    private async void OnTenantSelected(object sender, SelectionChangedEventArgs e)
+    private async void OnTenantTapped(object sender, TappedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is Tenant selectedTenant)
+        if (e.Parameter is Tenant selectedTenant)
         {
             await Navigation.PushAsync(new TenantPaymentDetailPage(selectedTenant));
         }
-
-        ((CollectionView)sender).SelectedItem = null;
     }
 }
