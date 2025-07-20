@@ -10,8 +10,7 @@
 - Haidar Fatah
 - Muhammad Fathy Farahat
   
-  Project UAS - Mata Kuliah Pemrograman iOS
-  TRPL - Politeknik Enjinering Indorama
+  Project UAS - Mata Kuliah Pemrograman iOS - TRPL - Politeknik Enjinering Indorama
 
 ---
 
