@@ -9,7 +9,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Header: Kos Name dan Foto Profil -->
+           
             <Grid ColumnDefinitions="*,Auto">
                 <Label x:Name="kosNameLabel"
                        Text="Nama Kos"
@@ -38,7 +38,7 @@
                 </Frame>
             </Grid>
 
-            <!-- Pendapatan Bulan Ini -->
+           
             <Frame BackgroundColor="#3A4A5A" Padding="20" CornerRadius="10">
                 <VerticalStackLayout Spacing="5">
                     <Label Text="Pendapatan Bulan Ini"
@@ -54,7 +54,7 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Statistik -->
+           
             <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="10">
                 <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#3A4A5A" Padding="10" CornerRadius="5">
                     <VerticalStackLayout>

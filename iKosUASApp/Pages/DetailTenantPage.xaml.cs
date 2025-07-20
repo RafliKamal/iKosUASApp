@@ -29,26 +29,6 @@ public partial class DetailTenantPage : ContentPage
     }
 
 
-    //private async void OnAddPaymentClicked(object sender, EventArgs e)
-    //{
-    //    string input = await DisplayPromptAsync("Tambah Pembayaran", "Masukkan nominal pembayaran (Rp):", keyboard: Keyboard.Numeric);
-
-    //    if (double.TryParse(input, out double amount) && amount > 0)
-    //    {
-    //        _tenant.Payments.Add(new Payment
-    //        {
-    //            Date = DateTime.Now,
-    //            Amount = amount
-    //        });
-
-    //        RefreshUI();
-    //    }
-    //    else
-    //    {
-    //        await DisplayAlert("Error", "Nominal tidak valid.", "OK");
-    //    }
-    //}
-
     private async void OnEditClicked(object sender, EventArgs e)
     {
         string newName = await DisplayPromptAsync("Edit Nama", "Masukkan nama baru:", initialValue: _tenant.Name);

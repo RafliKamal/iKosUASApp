@@ -27,7 +27,7 @@
                        Grid.Column="1"/>
             </Grid>
 
-            <!-- Foto Profil -->
+
             <Image x:Name="profileImage"
                    HeightRequest="150"
                    WidthRequest="150"
@@ -35,14 +35,14 @@
                    BackgroundColor="LightGray"
                    HorizontalOptions="Center" />
 
-            <!-- Tombol Pilih Gambar -->
+
             <Button Text="Pilih Foto Profil"
                     Clicked="OnPickImageClicked"
                     BackgroundColor="#4B5C6B"
                     TextColor="White"
                     HorizontalOptions="Center" />
 
-            <!-- Input Nama Kosan -->
+
             <Label Text="Nama Kosan"
                    TextColor="White"/>
             <Entry x:Name="kosNameEntry"
@@ -52,7 +52,7 @@
                    PlaceholderColor="Gray"
                    HeightRequest="40" />
 
-            <!-- Tombol Simpan -->
+
             <Button Text="Simpan Perubahan"
                     Clicked="OnSaveClicked"
                     BackgroundColor="#4B5C6B"

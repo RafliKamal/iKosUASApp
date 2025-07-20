@@ -29,7 +29,7 @@ public class Tenant : INotifyPropertyChanged
         }
     }
 
-    [JsonIgnore] // Hindari circular reference
+    [JsonIgnore] 
     public Room? Room { get; set; }
 
     public double TotalPaid => Payments.Sum(p => p.Amount);

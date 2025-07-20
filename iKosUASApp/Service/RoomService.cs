@@ -50,11 +50,9 @@ public static class RoomService
 
     public static void AssignTenantToRoom(Room room, Tenant tenant)
     {
-        tenant.Room = room; // SET agar IsPaidThisMonth bisa akses price-nya
+        tenant.Room = room; 
         room.Tenant = tenant;
 
-        // Hapus auto pembayaran
-        // tenant.Payments.Add(new Payment { Date = DateTime.Now, Amount = room.PricePerMonth });
 
         DataService.SaveData();
     }

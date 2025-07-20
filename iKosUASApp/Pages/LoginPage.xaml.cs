@@ -11,9 +11,18 @@ public partial class LoginPage : ContentPage
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        if (AuthService.Login(usernameEntry.Text, passwordEntry.Text))
+        string username = usernameEntry.Text;
+        string password = passwordEntry.Text;
+
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
         {
-            await Task.Delay(150); // jeda kecil agar terasa halus
+            await DisplayAlert("Login Gagal", "Username dan password tidak boleh kosong.", "OK");
+            return;
+        }
+
+        if (AuthService.Login(username, password))
+        {
+            await Task.Delay(150);
             Application.Current.MainPage = new NavigationPage(new MainNavigationPage());
         }
         else
@@ -27,9 +36,4 @@ public partial class LoginPage : ContentPage
         await Navigation.PushAsync(new RegisterPage());
     }
 
-
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
-    {
-
-    }
 }
