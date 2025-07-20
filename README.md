@@ -47,31 +47,7 @@ Run the app (F5 or ▶️ Start button).
 
 💡 This app is intended for educational/demo use only. For production, consider implementing persistent storage and user authentication backend.
 
-📂 Project Structure
-graphql
-Copy
-Edit
-iKosUASApp/
-│
-├── Pages/               # All XAML pages (UI)
-│   ├── HomePage.xaml
-│   ├── RoomPage.xaml
-│   ├── AddTenantPage.xaml
-│   └── etc.
-│
-├── Model/               # Data models
-│   ├── Room.cs
-│   ├── Tenant.cs
-│   └── User.cs
-│
-├── Service/             # In-memory service classes
-│   ├── AuthService.cs
-│   ├── RoomService.cs
-│   └── etc.
-│
-├── Resources/           # Icons & images
-│
-└── App.xaml.cs          # App startup logic
+
 🧪 Validation & Error Handling
 ✅ All forms (register, login, add room, etc.) include field validation.
 
