@@ -9,8 +9,9 @@
 - Muhamad Rafli Kamal
 - Haidar Fatah
 - Muhammad Fathy Farahat
-- Project UAS - Mata Kuliah Pemrograman iOS
-- TRPL - Politeknik Enjinering Indorama
+  
+  Project UAS - Mata Kuliah Pemrograman iOS
+  TRPL - Politeknik Enjinering Indorama
 
 ---
 
@@ -57,11 +58,28 @@
 ```
 iKosUASApp/
 │
-├── Pages/          → Semua halaman tampilan (UI)
-├── Model/          → Class model data (Room, Tenant, User)
-├── Service/        → Layanan untuk login, penyimpanan data kamar/penyewa
-├── Resources/      → Icon, gambar, dll
-├── MainNavigationPage.xaml → Navigasi bottom tab
+├── Pages/               # All XAML pages (UI)
+│   ├── HomePage.xaml
+│   ├── RoomPage.xaml
+│   ├── TenantPage.xaml
+│   └── etc.
+│
+├── Model/               # Data models
+│   ├── Room.cs
+│   ├── Tenant.cs
+│   ├── Payment.cs
+│   ├── TenantViewModel.cs
+│   └── User.cs
+│
+├── Service/             # In-memory service classes
+│   ├── AuthService.cs
+│   ├── RoomService.cs
+│   └── DataService.cs
+│
+├── Resources/           # Icons & images
+│
+└── App.xaml.cs          # App startup logic
+
 ```
 
 ---
@@ -114,6 +132,7 @@ Dictionary<string, User> users = new();
 | Kamar            | Daftar kamar, status, gambar       |
 | Penyewa          | Daftar penyewa dan kamar terkait   |
 | Pembayaran       | Status lunas/belum lunas per bulan |
+| Profile          | Edit Profile, LogOut |
 
 ---
 
