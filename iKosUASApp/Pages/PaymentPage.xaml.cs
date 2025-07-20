@@ -18,9 +18,10 @@ public partial class PaymentPage : ContentPage
 
     private void LoadTenantPayments()
     {
-        var allTenants = RoomService.GetRooms()
+        var rooms = RoomService.GetRooms();
+        var allTenants = rooms
             .Where(r => r.Tenant != null)
-            .Select(r => r.Tenant)
+            .Select(r => r.Tenant!)
             .ToList();
 
         var paid = allTenants.Where(t => t.IsPaidThisMonth).ToList();
@@ -28,7 +29,23 @@ public partial class PaymentPage : ContentPage
 
         paidList.ItemsSource = paid;
         unpaidList.ItemsSource = unpaid;
+
+        // Cek jumlah tenant
+        bool hasTenant = allTenants.Count > 0;
+
+        emptyPaidLabel.IsVisible = hasTenant && paid.Count == 0;
+        emptyUnpaidLabel.IsVisible = hasTenant && unpaid.Count == 0;
+
+        // Tambahan opsional: sembunyikan semua jika tidak ada tenant
+        if (!hasTenant)
+        {
+            emptyPaidLabel.Text = "Belum ada data penyewa.";
+            emptyUnpaidLabel.Text = "Belum ada data penyewa.";
+            emptyPaidLabel.IsVisible = true;
+            emptyUnpaidLabel.IsVisible = true;
+        }
     }
+
 
     private async void OnTenantSelected(object sender, SelectionChangedEventArgs e)
     {

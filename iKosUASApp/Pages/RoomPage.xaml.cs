@@ -19,8 +19,14 @@ public partial class RoomPage : ContentPage
 
     private void RefreshRooms()
     {
-        availableRoomsView.ItemsSource = RoomService.GetAvailableRooms();
-        occupiedRoomsView.ItemsSource = RoomService.GetRooms().Where(r => r.IsOccupied).ToList();
+        var availableRooms = RoomService.GetAvailableRooms();
+        var occupiedRooms = RoomService.GetRooms().Where(r => r.IsOccupied).ToList();
+
+        availableRoomsView.ItemsSource = availableRooms;
+        occupiedRoomsView.ItemsSource = occupiedRooms;
+
+        noAvailableRoomsLabel.IsVisible = availableRooms.Count == 0;
+        noOccupiedRoomsLabel.IsVisible = occupiedRooms.Count == 0;
     }
 
 
@@ -31,11 +37,12 @@ public partial class RoomPage : ContentPage
     }
 
 
-    private async void OnRoomTapped(object sender, SelectionChangedEventArgs e)
+    private async void OnRoomTapped(object sender, TappedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is Room selectedRoom)
+        if (e.Parameter is Room selectedRoom)
         {
             await Navigation.PushAsync(new DetailRoomPage(selectedRoom));
         }
     }
+
 }

@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.EditProfilePage"
              Title="Edit Profil"
-             BackgroundColor="Black"
+             BackgroundColor="#191919"
              NavigationPage.HasNavigationBar="False">
 
     <ScrollView>

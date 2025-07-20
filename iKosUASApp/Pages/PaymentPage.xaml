@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.PaymentPage"
-             BackgroundColor="Black"
-             NavigationPage.HasNavigationBar="False">
+             BackgroundColor="#191919"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             >
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
@@ -13,12 +15,21 @@
                    FontSize="20"
                    TextColor="White" />
 
+            <Label x:Name="emptyPaidLabel"
+                   Text="Belum ada penyewa yang lunas bulan ini."
+                   TextColor="Gray"
+                   FontAttributes="Italic"
+                   IsVisible="False"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,0"/>
+
+
             <CollectionView x:Name="paidList"
                             SelectionMode="Single"
                             SelectionChanged="OnTenantSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" Margin="0,0,0,10"
+                        <Frame Padding="10" Margin="0,5,0,5"
                                BackgroundColor="#4B5C6B"
                                CornerRadius="10"
                                InputTransparent="True">
@@ -43,12 +54,21 @@
                    TextColor="White"
                    Margin="0,20,0,0"/>
 
+            <Label x:Name="emptyUnpaidLabel"
+                   Text="Semua penyewa sudah membayar bulan ini."
+                   TextColor="Gray"
+                   FontAttributes="Italic"
+                   IsVisible="False"
+                   HorizontalOptions="Center"
+                   Margin="0,30,0,0"/>
+
+
             <CollectionView x:Name="unpaidList"
                             SelectionMode="Single"
                             SelectionChanged="OnTenantSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" Margin="0,0,0,10"
+                        <Frame Padding="10" Margin="0,5,0,5"
                                BackgroundColor="#4B5C6B"
                                CornerRadius="10"
                                InputTransparent="True">

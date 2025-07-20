@@ -2,21 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.HomePage"
-             BackgroundColor="Black"
-             NavigationPage.HasNavigationBar="False">
+             BackgroundColor="#191919"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Header Nama Kos -->
-            <Frame BackgroundColor="#3A4A5A" Padding="15" CornerRadius="5">
+            <!-- Header: Kos Name dan Foto Profil -->
+            <Grid ColumnDefinitions="*,Auto">
                 <Label x:Name="kosNameLabel"
                        Text="Nama Kos"
                        TextColor="White"
                        FontSize="20"
                        FontAttributes="Bold"
-                       HorizontalOptions="Center" />
-            </Frame>
+                       VerticalOptions="Center" />
+
+
+                <Frame HeightRequest="40"
+                       WidthRequest="40"
+                       CornerRadius="25"
+                       Padding="0"
+                       BackgroundColor="White"
+                       IsClippedToBounds="True"
+                       BorderColor="White"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <ImageButton x:Name="profileImageButton"
+                                 Aspect="AspectFill"
+                                 BackgroundColor="Transparent"
+                                 Clicked="OnProfileImageClicked"
+                                 HeightRequest="50"
+                                 WidthRequest="50"
+                                 Padding="0" />
+                </Frame>
+            </Grid>
 
             <!-- Pendapatan Bulan Ini -->
             <Frame BackgroundColor="#3A4A5A" Padding="20" CornerRadius="10">

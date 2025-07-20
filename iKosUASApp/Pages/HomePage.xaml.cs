@@ -1,18 +1,46 @@
 using iKosUASApp.Service;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
 
 namespace iKosUASApp.Pages;
 
 public partial class HomePage : ContentPage
 {
-    public HomePage()
+ 
+
+    public HomePage()   
     {
         InitializeComponent();
+
+        LoadUserProfile();
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
         LoadDashboardData();
+        LoadUserProfile();
+    }
+
+    private void LoadUserProfile()
+    {
+        var user = AuthService.CurrentUser;
+
+        if (user != null && !string.IsNullOrEmpty(user.ProfileImagePath))
+        {
+            profileImageButton.Source = ImageSource.FromFile(user.ProfileImagePath);
+        }
+        else
+        {
+            profileImageButton.Source = "profile.png"; 
+        }
+
+        kosNameLabel.Text = user?.KosName ?? "Kos Saya";
+    }
+
+    private async void OnProfileImageClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ProfilePage());
     }
 
     private void LoadDashboardData()

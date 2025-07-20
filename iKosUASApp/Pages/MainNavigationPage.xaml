@@ -1,7 +1,11 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:iKosUASApp.Pages"
-       x:Class="iKosUASApp.Pages.MainNavigationPage">
+       x:Class="iKosUASApp.Pages.MainNavigationPage"
+       Shell.TabBarBackgroundColor="#191919"
+       Shell.TabBarTitleColor="White"
+       Shell.TabBarUnselectedColor="Gray">
+
 
     <TabBar>
         <ShellContent Title="Dashboard"
@@ -9,19 +13,16 @@
                       ContentTemplate="{DataTemplate pages:HomePage}" />
 
         <ShellContent Title="Kamar"
-                      Icon="room.png"
+                      Icon="booking.png"
                       ContentTemplate="{DataTemplate pages:RoomPage}" />
 
         <ShellContent Title="Penyewa"
-                      Icon="tenant.png"
+                      Icon="group.png"
                       ContentTemplate="{DataTemplate pages:TenantPage}" />
 
         <ShellContent Title="Pembayaran"
-                      Icon="payment.png"
+                      Icon="dollar.png"
                       ContentTemplate="{DataTemplate pages:PaymentPage}" />
 
-        <ShellContent Title="Profile"
-                      Icon="user.png"
-                      ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
 </Shell>

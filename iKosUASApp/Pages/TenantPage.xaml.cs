@@ -23,7 +23,9 @@ public partial class TenantPage : ContentPage
             .ToList();
 
         tenantView.ItemsSource = viewModels;
+        emptyLabel.IsVisible = viewModels.Count == 0;
     }
+
 
     protected override void OnAppearing()
     {

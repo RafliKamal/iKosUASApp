@@ -36,4 +36,5 @@ public partial class RegisterPage : ContentPage
     {
         await Navigation.PushAsync(new LoginPage());
     }
+
 }

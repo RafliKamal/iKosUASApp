@@ -2,19 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.ProfilePage"
-             BackgroundColor="Black"
+             BackgroundColor="#191919"
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout Padding="20" Spacing="15" HorizontalOptions="Center">
 
-        <Image x:Name="profileImage"
-               HeightRequest="120"
+        <Frame HeightRequest="120"
                WidthRequest="120"
-               Aspect="AspectFill"
+               CornerRadius="60"
+               Padding="0"
                BackgroundColor="#4B5C6B"
+               IsClippedToBounds="True"
                HorizontalOptions="Center"
-               VerticalOptions="Center"
-               Margin="0,30,0,0"/>
+               Margin="0,30,0,0">
+            <Image x:Name="profileImage"
+                   Aspect="AspectFill"
+                   HeightRequest="120"
+                   WidthRequest="120" />
+        </Frame>
 
         <Label x:Name="usernameLabel"
                FontSize="20"

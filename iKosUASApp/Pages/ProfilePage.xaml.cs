@@ -18,6 +18,10 @@ public partial class ProfilePage : ContentPage
             {
                 profileImage.Source = ImageSource.FromFile(user.ProfileImagePath);
             }
+            else
+            {
+                profileImage.Source = "profile.png";
+            }
         }
     }
 
@@ -41,8 +45,8 @@ public partial class ProfilePage : ContentPage
             }
             else
             {
-                profileImage.Source = null;
-            }
+                profileImage.Source = "profile.png";
+            }   
         }
     }
 

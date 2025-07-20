@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.TenantPaymentDetailPage"
              Title="Detail Pembayaran"
-             BackgroundColor="Black"
+             BackgroundColor="#191919"
              NavigationPage.HasNavigationBar="False">
 
     <StackLayout Padding="20" Spacing="15">
@@ -24,11 +24,11 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Padding="10"
-                           Margin="0,0,0,10"
+                           Margin="0,5,0,5"
                            BackgroundColor="#4B5C6B"
                            CornerRadius="10">
                         <StackLayout>
-                            <Label Text="{Binding Date, StringFormat='Tanggal: {0:MMMM yyyy}'}"
+                            <Label Text="{Binding Date, StringFormat='Tanggal: {0:dd MMMM yyyy}'}"
                                    TextColor="White"/>
                             <Label Text="{Binding Amount, StringFormat='Jumlah: Rp {0:N0}'}"
                                    TextColor="White"/>

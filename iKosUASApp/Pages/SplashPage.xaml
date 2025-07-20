@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iKosUASApp.Pages.SplashPage"
-             Title="SplashPage">
+             Title="SplashPage"
+             BackgroundColor="#191919"
+             NavigationPage.HasNavigationBar="False">
     <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="iKos" FontSize="36" />
+        <Label Text="KOSAN KU" FontSize="36" />
     </StackLayout>
 </ContentPage>

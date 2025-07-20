@@ -15,8 +15,11 @@ public partial class EditProfilePage : ContentPage
         if (user != null)
         {
             kosNameEntry.Text = user.KosName;
+
             if (!string.IsNullOrEmpty(user.ProfileImagePath))
                 profileImage.Source = ImageSource.FromFile(user.ProfileImagePath);
+            else
+                profileImage.Source = "profile.png";
         }
     }
 
@@ -35,17 +38,30 @@ public partial class EditProfilePage : ContentPage
         }
     }
 
-    private void OnSaveClicked(object sender, EventArgs e)
+    private async void OnSaveClicked(object sender, EventArgs e)
     {
         var user = AuthService.CurrentUser;
-        if (user != null)
-        {
-            user.KosName = kosNameEntry.Text ?? "";
-            if (!string.IsNullOrEmpty(imagePath))
-                user.ProfileImagePath = imagePath;
+        if (user == null) return;
 
-            AuthService.Save(); // simpan ke file
-            DisplayAlert("Sukses", "Profil berhasil diperbarui", "OK");
+        string kosName = kosNameEntry.Text?.Trim() ?? "";
+
+        if (string.IsNullOrWhiteSpace(kosName))
+        {
+            await DisplayAlert("Validasi", "Nama kosan tidak boleh kosong.", "OK");
+            return;
         }
+
+        user.KosName = kosName;
+
+        if (!string.IsNullOrEmpty(imagePath))
+            user.ProfileImagePath = imagePath;
+
+        AuthService.Save();
+
+        await DisplayAlert("Sukses", "Profil berhasil diperbarui.", "OK");
+
+
+        Application.Current.MainPage = new NavigationPage(new MainNavigationPage());
+
     }
 }
